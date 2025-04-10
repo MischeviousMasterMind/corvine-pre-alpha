@@ -22,10 +22,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Install Emscription
+    - name: Install Emscription SDK
       run: git clone https://github.com/emscripten-core/emsdk.git && cd emsdk && ./emsdk install latest && ./emsdk activate latest
 
-    - name: Configure Emscription CMake
+    - name: Configure Emscription CMake file
       run: source ./emsdk/emsdk_env.sh && emcmake cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
