@@ -12,7 +12,7 @@ file(GLOB_RECURSE SOURCE_FILES src/*.cpp)
 
 target_sources(${PROJECT_NAME} PRIVATE ${SOURCE_FILES})
 
-set(EXECUTABLE_OUTPUT_PATH scripts)
+set(EXECUTABLE_OUTPUT_PATH ../scripts)
 
 set(CMAKE_EXECUTABLE_SUFFIX ".wasm")
 
