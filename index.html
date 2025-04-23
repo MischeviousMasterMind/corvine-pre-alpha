@@ -7,13 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script>
 
-      WebAssembly.instantiateStreaming(fetch("scripts/corvine-pre-alpha.wasm")).then((result) => {
+      const importObject = {
 
-      const add = result.instance.exports.add;
+        env: {
+          console_log: function(message) { console.log(message) }
+        }
 
-      console.log(add(1, 2));
+      };
 
-    });
+      WebAssembly.instantiateStreaming(
+        fetch("scripts/corvine-pre-alpha.wasm"), importObject
+      ).then((result) => {
+        const print = result.instance.exports.print;
+
+        print("24");
+      });
     </script>
   </head>
   <body>
