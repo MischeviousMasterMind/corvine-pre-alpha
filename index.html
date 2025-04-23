@@ -6,11 +6,14 @@
     <title>Corvine</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script>
-      WebAssembly.instantiateStreaming(fetch("scripts/corvine-pre-alpha.wasm"),).then(
-        (results) => {
-          // Do something with the results!
-        }
-      );
+
+      WebAssembly.instantiateStreaming(fetch("scripts/corvine-pre-alpha.wasm")).then((result) => {
+
+      const add = result.instance.exports.add;
+
+      console.log(add(1, 2));
+
+    });
     </script>
   </head>
   <body>
